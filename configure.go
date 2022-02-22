@@ -84,7 +84,6 @@ func Configure(filename string) (err error) {
 
 		// Create XMLTV file
 		entry.Key = 5
-		fmt.Println(Config.Files)
 		entry.Value = fmt.Sprintf("%s [%s]", getMsg(0016), Config.Files.XMLTV)
 		menu.Entry[5] = entry
 
@@ -102,32 +101,25 @@ func Configure(filename string) (err error) {
 			entry.account()
 			sd.Login()
 			sd.Status()
-			break
 
 		case 2:
 			entry.addLineup(&sd)
 			sd.Status()
-			break
 
 		case 3:
 			entry.removeLineup(&sd)
 			sd.Status()
-			break
 
 		case 4:
 			entry.manageChannels(&sd)
 			sd.Status()
-			break
 
 		case 5:
 			sd.Update(filename)
-			break
 
 		}
 
 	}
-
-	return
 }
 
 func (c *config) Open() (err error) {
@@ -192,7 +184,7 @@ func (c *config) Open() (err error) {
 
 	}
 
-	if newOptions == true {
+	if newOptions {
 
 		err = c.Save()
 		if err != nil {
@@ -201,7 +193,7 @@ func (c *config) Open() (err error) {
 
 	}
 
-	if rmCacheFile == true {
+	if rmCacheFile {
 		Cache.Remove()
 	}
 
