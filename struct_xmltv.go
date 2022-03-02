@@ -128,11 +128,11 @@ type Video struct {
 	Present string `xml:"present,omitempty"`
 	Colour  string `xml:"colour,omitempty"`
 	Aspect  string `xml:"aspect,omitempty"`
-	Quality string `xml:"quality,omitempty"`
+	Quality []string `xml:"quality,omitempty"`
 }
 
 type Audio struct {
-	Stereo string `xml:"stereo,omitempty"`
+	Stereo []string `xml:"stereo,omitempty"`
 }
 
 type PreviouslyShown struct {
