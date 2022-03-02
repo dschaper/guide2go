@@ -176,33 +176,28 @@ func getProgram(channel G2GCache) (p []Programme) {
 			// Video
 			for _, v := range s.VideoProperties {
 
-				switch strings.ToLower(v) {
+				pro.Video.Quality = append(pro.Video.Quality, strings.ToUpper(v))
 
-				case "hdtv", "sdtv", "uhdtv", "3d":
-					pro.Video.Quality = strings.ToUpper(v)
+				//switch strings.ToLower(v) {
 
-				}
+				//case "hdtv", "sdtv", "uhdtv", "3d":
+				//	pro.Video.Quality = strings.ToUpper(v)
+
+				//}
 
 			}
 
 			// Audio
 			for _, a := range s.AudioProperties {
-
+				
 				switch a {
 
-				case "stereo", "dvs":
-					pro.Audio.Stereo = "stereo"
-				case "DD 5.1", "Atmos":
-					pro.Audio.Stereo = "dolby digital"
-				case "Dolby":
-					pro.Audio.Stereo = "dolby"
-				case "dubbed", "mono":
-					pro.Audio.Stereo = "mono"
+				case "stereo":
+					pro.Audio.Stereo = append(pro.Audio.Stereo, "Stereo")
+				case "SAP":
 				default:
-					pro.Audio.Stereo = "mono"
-
+					pro.Audio.Stereo = append(pro.Audio.Stereo, strings.ToUpper(a))
 				}
-
 			}
 
 			// New / PreviouslyShown
