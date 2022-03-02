@@ -173,19 +173,16 @@ func getProgram(channel G2GCache) (p []Programme) {
 			// Rating
 			pro.Rating = Cache.GetRating(s.ProgramID, countryCode)
 
-			// Video
-			for _, v := range s.VideoProperties {
+			// Vide
 
-				pro.Video.Quality = append(pro.Video.Quality, strings.ToUpper(v))
+			pro.Video.Quality = append(pro.Video.Quality, s.VideoProperties ... )
 
 				//switch strings.ToLower(v) {
 
 				//case "hdtv", "sdtv", "uhdtv", "3d":
 				//	pro.Video.Quality = strings.ToUpper(v)
 
-				//}
-
-			}
+				//
 
 			// Audio
 			for _, a := range s.AudioProperties {
